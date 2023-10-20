@@ -197,7 +197,6 @@ async function galaxy(playback) {
     
         //animate
         const animate = () => {
-            console.log(galaxy.stars.length);
             clearCanvas();
             galaxy.draw();
             if(playback.state() === playback.PLAY) {
