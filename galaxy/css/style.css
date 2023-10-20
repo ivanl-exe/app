@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
+
+:root {
+    --space-color: #020B20;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Gabarito', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    user-select: none;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.galaxy-menu-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.galaxy-menu-item {
+    width: 80px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.galaxy-menu-container > button {
+    background-color: none;
+    border: none;
+}
+
+#logo-button {
+    background-color: var(--space-color) !important;
+}
+
+#playback-button {
+    background-color: white !important;
+}
+
+#logo-image, #playback-image {
+    width: 100%;
+}
+
+#galaxy-canvas {
+    position: fixed;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--space-color);
+    z-index: -1;
+}
+
+.galaxy-dashboard-container {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding-inline: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--space-color);
+    border: solid white 2px;
+    border-radius: 5px;
+}
+
+.galaxy-dashboard-item {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    user-select: none;
+}
+
+.galaxy-dashboard-container > #galaxy-title-progression {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 22px;
+}
+
+.galaxy-dashboard-item > input {
+    appearance: none;
+    background-color: black;
+    border: solid white 2px;
+    border-radius: 5px;
+}
+
+.galaxy-dashboard-item > input::-webkit-slider-thumb {
+    appearance: none;
+    height: 10px;
+    width: 10px;
+    background: white;
+    border-radius: 1px;
+    cursor: grab;
+}
+
+.galaxy-dashboard-item > input::-webkit-slider-thumb:active {
+    cursor: grabbing;
+}
