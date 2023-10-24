@@ -19,6 +19,10 @@ Number.prototype.modulo = function(diviser) {
     return ((this * multiplier) % (diviser * multiplier)) / multiplier;
 }
 
+String.prototype.isNumeric = function() {
+    return !isNaN(this);
+}
+
 const randomMagnitude = () => Math.random();
 
 const randomAngle = () => Math.random() * 2 * Math.PI;
@@ -30,6 +34,14 @@ const randomColor = () => {
         .map((n) => n.toString(16).padStart(2, "0"))
         .join("");
 }
+
+const parseNumber = (n) => {
+    if(typeof n == "number") { return n; }
+    if(typeof n == "string" && n != "" && n.isNumeric()) {
+        return parseFloat(n);
+    }
+    return null;
+} 
 
 async function galaxy(playback) {
     $(document).ready(() => {
@@ -147,6 +159,9 @@ async function galaxy(playback) {
                 return removed;
             }
         }
+
+        //query
+        window.query = new Query();
     
         //canvas
         const canvas = $("#galaxy-canvas");
@@ -164,23 +179,38 @@ async function galaxy(playback) {
     
         //galaxy
         const galaxy = new Galaxy(ctx);
-    
-        //magnitude factors
+
         const magnitudeProgressionSlider = $("#galaxy-magnitude-progression");
+        const radiusProgressionSlider = $("#galaxy-radius-progression");
+
+        //IIFE (immediate invoked function expression)
+        (() => {
+            const magnitudeFactor = parseNumber(window.query.get("magnitude"));
+            if(magnitudeFactor != null) { magnitudeProgressionSlider.val(magnitudeFactor); }
+            const radiusFactor = parseNumber(window.query.get("radius"));
+            if(radiusFactor != null) {
+                radiusProgressionSlider.val(
+                    radiusFactor * (radiusProgressionSlider.attr("max") - radiusProgressionSlider.attr("min"))
+                );
+            }
+        })();
+
+        //magnitude factors
         magnitudeProgressionSlider.on("input change", (e) => {
             const target = $(e.target);
             window.magnitudeFactor = target.value();
+            window.query.set("magnitude", window.magnitudeFactor);
         }).trigger("change");
         
         //radius factor
-        const radiusProgressionSlider = $("#galaxy-radius-progression");
         radiusProgressionSlider.on("input change", (e) => {
             const target = $(e.target);
             window.radiusFactor = target.value((value) => {
                 return value / (target.attr("max") - target.attr("min"))
             });
+            window.query.set("radius", window.radiusFactor);
         }).trigger("change");
-    
+        
         //stars
         const polarQuarter = Math.PI / 2;
         const magnitudeLambda = (polarCoordinate) => {
@@ -204,7 +234,7 @@ async function galaxy(playback) {
                 galaxy.animate(
                     magnitudeLambda,
                     radiusLambda
-                );    
+                );
             }
             requestAnimationFrame(animate);
         }
