@@ -194,22 +194,28 @@ async function galaxy(playback) {
                 );
             }
         })();
-
+        
         //magnitude factors
-        magnitudeProgressionSlider.on("input change", (e) => {
+        magnitudeProgressionSlider.on("input", (e) => {
             const target = $(e.target);
             window.magnitudeFactor = target.value();
+        }).trigger("input");
+
+        magnitudeProgressionSlider.on("change", () => {
             window.query.set("magnitude", window.magnitudeFactor);
-        }).trigger("change");
+        });
         
         //radius factor
-        radiusProgressionSlider.on("input change", (e) => {
+        radiusProgressionSlider.on("input", (e) => {
             const target = $(e.target);
             window.radiusFactor = target.value((value) => {
                 return value / (target.attr("max") - target.attr("min"))
             });
+        }).trigger("input");
+
+        radiusProgressionSlider.on("change", () => {
             window.query.set("radius", window.radiusFactor);
-        }).trigger("change");
+        });
         
         //stars
         const polarQuarter = Math.PI / 2;
@@ -220,7 +226,7 @@ async function galaxy(playback) {
             ).modulo(polarQuarter)
             return (1 / window.magnitudeFactor) * Math.tan(extremaProximity / polarQuarter);
         }
-    
+        
         const radiusLambda = (polarCoordinate) => {
             return window.radiusFactor;
         }
