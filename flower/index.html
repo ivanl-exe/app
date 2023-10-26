@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Flower</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="img/favicon.png">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="../shared/modules/jquery-3.7.1.min.js"></script>
+        <script src="../shared/js/util/number.js"></script>
+        <script src="../shared/js/util/string.js"></script>
+        <script src="../shared/js/util/jquery.js"></script>
+        <script src="../shared/js/query.js"></script>
+        <script src="../shared/js/menu/icon.js"></script>
+        <script src="../shared/js/menu/playback.js"></script>
+        <script src="js/flower.js"></script>
+    
+    </head>
+    <body>
+        <div class="flower-container">
+            <div class="flower-menu-container">
+                <button class="flower-menu-item" id="logo-button">
+                    <img src="img/favicon.png" id="logo-image">
+                </button>
+                <button class="flower-menu-item" id="playback-button" value="pause">
+                    <img src="../shared/img/playback/stop_FILL0_wght700_GRAD200_opsz48.svg" id="playback-image">
+                </button>
+            </div>
+            <div class="flower-dashboard-container">
+                <h3 class="flower-dashboard-item" id="flower-title-progression">Variables</h3>
+                <div class="flower-dashboard-item">
+                    <label for="coefficient-variable">Coefficient</label>
+                    <input type="range" value="2" min="2" max="8" name="coefficient-variable" id="flower-coefficient-variable">
+                </div>
+                <div class="flower-dashboard-item">
+                    <label for="offset-variable">Offset</label>
+                    <input type="range" value="0" min="0" max="360" name="offset-variable" id="flower-offset-variable">
+                </div>
+                <div class="flower-dashboard-item">
+                    <label for="divisions-variable">Divisions</label>
+                    <input type="range" value="500" min="0" max="999" name="divisions-variable" id="flower-divisions-variable">
+                </div>
+            </div>
+            <canvas id="flower-canvas"></canvas>
+        </div>
+    </body>
+</html>

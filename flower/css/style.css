@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+:root {
+    --grass-color: #204020;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background: var(--grass-color);
+}
+
+button {
+    cursor: pointer;
+    background: none;
+}
+
+img {
+    user-select: none;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.flower-menu-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.flower-menu-item {
+    width: 80px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.flower-menu-container > button {
+    background-color: none;
+    border: none;
+}
+
+#logo-button {
+    background-color: var(--space-color) !important;
+}
+
+#playback-button {
+    background-color: white !important;
+}
+
+#logo-image, #playback-image {
+    width: 100%;
+}
+
+.flower-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.flower-menu-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    z-index: 2;
+}
+
+.flower-menu-item {
+    width: 80px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#flower-canvas {
+    padding: 0;
+    display: none;
+    align-self: center;
+    background-color: var(--grass-color);
+    z-index: 1;
+}
+
+.flower-dashboard-container {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding-inline: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--grass-color);
+    border: solid white 2px;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.flower-dashboard-item {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    user-select: none;
+}
+
+.flower-dashboard-container > #flower-title-progression {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 22px;
+}
+
+.flower-dashboard-item > input {
+    appearance: none;
+    background-color: black;
+    border: solid white 2px;
+    border-radius: 5px;
+}
+
+.flower-dashboard-item > input::-webkit-slider-thumb {
+    appearance: none;
+    height: 10px;
+    width: 10px;
+    background: white;
+    border-radius: 1px;
+    cursor: grab;
+}
+
+.flower-dashboard-item > input::-webkit-slider-thumb:active {
+    cursor: grabbing;
+}
