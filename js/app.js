@@ -3,13 +3,13 @@ class App {
         this.content = content;
         this.title = this.content["title"];
         this.path = this.content["path"];
-        this.image = this.content["image"];
+        this.image = this.content["img"];
     }
 
     shelf(onto) {
         const app = addChild(onto, "button", "app-container shelf-item");
         
-        const appURL = getAppUrl(this.path);
+        const appURL = getAppNameUrl(this.path);
         app.on("click", () => window.open(appURL, "_self"));
 
         //image
