@@ -1,0 +1,14 @@
+{
+    "Galaxy": {
+        "path": "galaxy",
+        "img": {
+            "src": "img/favicon.png"
+        }
+    },
+    "Flower": {
+        "path": "flower",
+        "img": {
+            "src": "img/favicon.png"
+        } 
+    }
+}

@@ -97,6 +97,11 @@ img {
     align-self: center;
     background-color: var(--grass-color);
     z-index: 1;
+    cursor: grab;
+}
+
+#flower-canvas:active {
+    cursor: grabbing;
 }
 
 .flower-dashboard-container {
