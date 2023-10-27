@@ -1,3 +1,3 @@
-const getAppUrl = (appName) => {
-    return [getBaseUrl(), "app", appName].join("/");
+const getAppNameUrl = (appName) => {
+    return [getAppNameUrl(), appName].join("/");
 }
